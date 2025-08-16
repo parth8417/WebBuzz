@@ -22,7 +22,7 @@ function App() {
   // Section refs are used for direct DOM references
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen w-full overflow-x-hidden">
       {/* Handle reduced motion preferences */}
       <ReducedMotionHandler />
       

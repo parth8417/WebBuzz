@@ -208,7 +208,7 @@ export default function Navbar() {
 
   return (
     <motion.nav 
-      className={`fixed top-0 left-0 right-0 z-50 navbar-glassmorphism bg-white/95 dark:bg-gray-900/95 shadow-lg backdrop-blur-md py-2.5 scrolled`}
+      className={`fixed top-0 left-0 right-0 z-50 w-full navbar-glassmorphism bg-white/95 dark:bg-gray-900/95 shadow-lg backdrop-blur-md py-2.5 scrolled`}
       role="navigation"
       aria-label="Main navigation"
       initial={{ opacity: 0, y: -20 }}
@@ -223,7 +223,7 @@ export default function Navbar() {
         opacity: { duration: 0.2 }
       }}
     >
-      <div className="container flex items-center justify-between mx-auto px-4 min-h-[72px] md:min-h-[80px]">
+      <div className="container flex items-center justify-between w-full mx-auto px-4 min-h-[72px] md:min-h-[80px]">
         {/* Logo */}
         <motion.div 
           className="flex items-center"
@@ -423,13 +423,14 @@ export default function Navbar() {
           className={`p-2.5 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
             scrolled
               ? 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700'
-              : 'bg-white/20 dark:bg-gray-800/40 text-gray-900 dark:text-white hover:bg-white/30 dark:hover:bg-gray-800/60 backdrop-blur-sm'
-          } md:hidden transition-all duration-300 z-50 block`}
-          initial={{ opacity: 0 }}
+              : 'bg-white/70 dark:bg-gray-800/70 text-gray-900 dark:text-white hover:bg-white/80 dark:hover:bg-gray-800/80 backdrop-blur-sm'
+          } md:hidden transition-all duration-300 z-50 block relative mobile-menu-button`}
+          initial={{ opacity: 1 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          style={{ display: 'block' }}
         >
           {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </motion.button>
