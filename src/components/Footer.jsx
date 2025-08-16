@@ -16,7 +16,7 @@ function Footer() {
 
   const contactInfo = [
     { icon: <Phone size={16} />, text: '+91-9586816799', href: 'tel:+919586816799' },
-    { icon: <Mail size={16} />, text: 'hello@webbuzz.in', href: 'mailto:hello@webbuzz.in' },
+    { icon: <Mail size={16} />, text: 'WebBuzz03@gmail.com', href: 'mailto:webbuzz03@gmail.com' },
     { icon: <MapPin size={16} />, text: 'Ahmedabad, Gujarat, India', href: 'https://maps.google.com/?q=Ahmedabad,Gujarat,India' }
   ];
 
@@ -31,14 +31,14 @@ function Footer() {
     { 
       icon: <Instagram size={18} />, 
       name: 'Instagram', 
-      href: '#', 
+      href: 'https://www.instagram.com/webbuzz.tech/', 
       color: '#E4405F',
       hoverClass: 'hover:bg-gradient-to-tr hover:from-[#FFDC80] hover:via-[#E4405F] hover:to-[#8A3AB9]'
     },
     { 
       icon: <Facebook size={18} />, 
       name: 'Facebook', 
-      href: '#', 
+      href: 'https://www.facebook.com/share/1QbRTxw3G6/', 
       color: '#1877F2',
       hoverClass: 'hover:bg-[#1877F2]'
     },
