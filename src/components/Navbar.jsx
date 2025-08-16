@@ -424,7 +424,7 @@ export default function Navbar() {
             scrolled
               ? 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700'
               : 'bg-white/20 dark:bg-gray-800/40 text-gray-900 dark:text-white hover:bg-white/30 dark:hover:bg-gray-800/60 backdrop-blur-sm'
-          } md:hidden transition-all duration-300`}
+          } md:hidden transition-all duration-300 z-50 block`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
