@@ -4,6 +4,7 @@ import { Link as ScrollLink } from 'react-scroll';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import animations from '../utils/animations';
 import { scrollToElement, handleSectionNavigation, setupScrollSpy } from '../utils/scrollUtils';
+import logoImage from '../assets/webbuzz-logo.png';
 
 const navItems = [
   { name: 'Home', to: 'home', icon: Home },
@@ -251,7 +252,7 @@ export default function Navbar() {
             }}
           >
             <img 
-              src="/src/assets/webbuzz-logo.png" 
+              src={logoImage} 
               alt="WebBuzz Logo"
               className="h-11 sm:h-12 md:h-13 w-auto transition-transform duration-300 group-hover:scale-105 ml-0.5 navbar-logo" 
               style={{ objectFit: 'contain' }}

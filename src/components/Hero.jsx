@@ -4,6 +4,7 @@ import { ChevronRight, ArrowDown, Rocket, Code, Palette, TrendingUp } from 'luci
 import { useEffect, useState, useRef } from 'react';
 import animations from '../utils/animations';
 import adjustHeroHeight from '../utils/heroHeightAdjust';
+import logoImage from '../assets/webbuzz-logo.png';
 
 function Hero() {
   // Honor reduced motion preferences
@@ -183,7 +184,7 @@ function Hero() {
       >
         {/* <div className="p-4 bg-white/90 dark:bg-gray-900/90 rounded-xl shadow-lg backdrop-blur-sm">
           <img 
-            src="/src/assets/webbuzz-logo.png" 
+            src={logoImage} 
             alt="WebBuzz Logo" 
             className="h-14 sm:h-16 md:h-18 w-auto" 
             width="72"

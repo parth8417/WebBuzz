@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
 import { Linkedin, Instagram, Facebook, Twitter, Mail, Phone, MapPin, ArrowUp } from 'lucide-react';
+import logoImage from '../assets/webbuzz-logo.png';
 
 function Footer() {
   const currentYear = new Date().getFullYear();
@@ -81,7 +82,7 @@ function Footer() {
           <div className="md:col-span-5">
             <div className="flex items-center mb-3">
               <img 
-                src="/src/assets/webbuzz-logo.png" 
+                src={logoImage} 
                 alt="WebBuzz Logo" 
                 className="h-12 w-auto mr-2" 
               />
