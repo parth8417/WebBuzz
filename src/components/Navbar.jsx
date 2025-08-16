@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { Menu, X, ChevronRight, ArrowRight, Home, Info, Briefcase, PhoneCall } from 'lucide-react';
 import { Link as ScrollLink } from 'react-scroll';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
@@ -99,10 +100,26 @@ export default function Navbar() {
     }
   }, [isOpen]);
 
+  // (Removed nav height measurement; menu now covers full screen)
+
   // Handle escape key to close mobile menu - accessibility
   const handleEscapeKey = useCallback((event) => {
     if (isOpen && event.key === 'Escape') {
       setIsOpen(false);
+    }
+  }, [isOpen]);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      const prevBodyOverflow = document.body.style.overflow;
+      const prevHtmlOverflow = document.documentElement.style.overflow;
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = prevBodyOverflow;
+        document.documentElement.style.overflow = prevHtmlOverflow;
+      };
     }
   }, [isOpen]);
 
@@ -208,6 +225,7 @@ export default function Navbar() {
 
   return (
     <motion.nav 
+      ref={navRef}
       className={`fixed top-0 left-0 right-0 z-50 navbar-glassmorphism bg-white/95 dark:bg-gray-900/95 shadow-lg backdrop-blur-md py-2.5 scrolled`}
       role="navigation"
       aria-label="Main navigation"
@@ -435,152 +453,178 @@ export default function Navbar() {
         </motion.button>
       </div>
       
-      {/* Mobile Navigation - Improved slide-in panel */}
-      <AnimatePresence>
-        {isOpen && (
-          <>
-            {/* Backdrop overlay - click to close */}
-            <motion.div
-              className="md:hidden fixed inset-0 bg-black/20 dark:bg-black/50 backdrop-blur-sm z-40"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={closeMenu}
-              aria-hidden="true"
-            />
-            
-            {/* Mobile menu panel */}
-            <motion.div 
-              id="mobile-menu"
-              ref={mobileMenuRef}
-              className="md:hidden fixed top-[70px] right-0 bottom-0 w-[85%] max-w-sm bg-white dark:bg-gray-900 shadow-xl z-50 overflow-y-auto overscroll-contain"
-              variants={{
-                hidden: { x: '100%', opacity: 0.5 },
-                visible: { x: 0, opacity: 1 }
-              }}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-              transition={{ 
-                type: "spring", 
-                stiffness: 300, 
-                damping: 30,
-                duration: 0.3
-              }}
-              role="dialog"
-              aria-modal="true"
-              aria-label="Navigation menu"
-            >
-              <motion.nav 
-                className="px-4 pt-4 pb-6 space-y-2" 
-                role="menu"
+      {/* Mobile Navigation - Improved slide-in panel via portal to avoid clipping */}
+      {isOpen && createPortal(
+        <AnimatePresence>
+          {/* Backdrop overlay - click to close */}
+          <motion.div
+            className="md:hidden fixed inset-0 bg-black/25 dark:bg-black/50 backdrop-blur-sm z-[60]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={closeMenu}
+            aria-hidden="true"
+          />
+
+          {/* Mobile menu panel */}
+          <motion.div
+            id="mobile-menu"
+            ref={mobileMenuRef}
+            className="md:hidden fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-white dark:bg-gray-900 shadow-xl z-[70] overflow-y-auto overscroll-contain"
+            variants={{
+              hidden: { x: '100%', opacity: 0.5 },
+              visible: { x: 0, opacity: 1 }
+            }}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            transition={{
+              type: 'spring',
+              stiffness: 300,
+              damping: 30,
+              duration: 0.3
+            }}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navigation menu"
+          >
+            {/* Panel header with close button */}
+            <div className="sticky top-0 z-10 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-b border-gray-100 dark:border-gray-800 px-4 py-3 flex items-center justify-between">
+              <span className="text-sm font-semibold text-gray-700 dark:text-gray-200">Menu</span>
+              <button
+                onClick={closeMenu}
+                aria-label="Close menu"
+                className="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               >
-                <div className="border-b border-gray-100 dark:border-gray-800 pb-2 mb-2">
-                  <p className="text-sm font-medium text-gray-500 dark:text-gray-400 px-2">NAVIGATION</p>
-                </div>
-                
-                {navItems.map((item, index) => {
-                  const Icon = item.icon;
-                  return (
-                    <motion.div
-                      key={item.to}
-                      variants={itemAnimation}
-                      custom={index}
-                      initial="hidden"
-                      animate="visible"
-                    >
-                      <ScrollLink
-                        to={item.to}
-                        spy={true}
-                        smooth={false}
-                        offset={-70}
-                        duration={0}
-                        onClick={(e) => {
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <motion.nav className="px-4 pt-4 pb-6 space-y-2" role="menu">
+              <div className="border-b border-gray-100 dark:border-gray-800 pb-2 mb-2">
+                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 px-2">NAVIGATION</p>
+              </div>
+
+              {navItems.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div
+                    key={item.to}
+                    variants={itemAnimation}
+                    custom={index}
+                    initial="hidden"
+                    animate="visible"
+                  >
+                    <ScrollLink
+                      to={item.to}
+                      spy={true}
+                      smooth={false}
+                      offset={-70}
+                      duration={0}
+                      onClick={(e) => {
+                        e.preventDefault();
+
+                        // Close menu immediately
+                        closeMenu();
+
+                        // Set active section right away
+                        setActiveSection(item.to);
+
+                        // Use optimized smooth scroll
+                        scrollToElement(
+                          item.to,
+                          70, // offset for mobile
+                          400, // shorter duration on mobile for responsiveness
+                          'easeOutQuad',
+                          () => handleSectionNavigation(item.to, setActiveSection)
+                        );
+                      }}
+                      onSetActive={() => setActiveSection(item.to)}
+                      role="menuitem"
+                      tabIndex={0}
+                      aria-current={activeSection === item.to ? 'page' : undefined}
+                      className={`flex items-center w-full px-4 py-4 rounded-lg ${
+                        activeSection === item.to
+                          ? 'bg-primary/10 text-primary font-medium'
+                          : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800/60 hover:text-primary'
+                      } transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary`}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
                           e.preventDefault();
-                          
-                          // Close menu immediately
                           closeMenu();
-                          
+
                           // Set active section right away
                           setActiveSection(item.to);
-                          
-                          // Use optimized smooth scroll
+
                           scrollToElement(
-                            item.to, 
-                            70, // offset for mobile
-                            400, // shorter duration on mobile for responsiveness
-                            'easeOutQuad', 
+                            item.to,
+                            70,
+                            400,
+                            'easeOutQuad',
                             () => handleSectionNavigation(item.to, setActiveSection)
                           );
-                        }}
-                        onSetActive={() => setActiveSection(item.to)}
-                        role="menuitem"
-                        tabIndex={0}
-                        aria-current={activeSection === item.to ? 'page' : undefined}
-                        className={`flex items-center w-full px-4 py-4 rounded-lg ${
-                          activeSection === item.to 
-                            ? 'bg-primary/10 text-primary font-medium' 
-                            : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800/60 hover:text-primary'
-                        } transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary`}
-                        onKeyDown={(e) => {
-                          if (e.key === 'Enter' || e.key === ' ') {
-                            e.preventDefault();
-                            closeMenu();
-                            
-                            // Set active section right away
-                            setActiveSection(item.to);
-                            
-                            scrollToElement(
-                              item.to,
-                              70,
-                              400,
-                              'easeOutQuad',
-                              () => handleSectionNavigation(item.to, setActiveSection)
-                            );
-                          }
-                        }}
-                      >
-                        <Icon className={`h-5 w-5 mr-3 ${activeSection === item.to ? 'text-primary' : ''}`} />
-                        <span>{item.name}</span>
-                        {activeSection === item.to && (
-                          <motion.div 
-                            className="ml-auto flex items-center gap-1 bg-primary/20 px-2 py-0.5 rounded-md text-primary text-xs"
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                          >
-                            <span>Current</span>
-                            <ChevronRight className="h-4 w-4" />
-                          </motion.div>
-                        )}
-                      </ScrollLink>
-                    </motion.div>
-                  );
-                })}
-                
-                {/* Get Started button in mobile menu - enhanced */}
-                <motion.div
-                  variants={itemAnimation}
-                  custom={navItems.length}
-                  initial="hidden"
-                  animate="visible"
-                  className="mt-6 pt-4 border-t border-gray-100 dark:border-gray-800"
-                >
-                  <ScrollLink
-                    to="contact"
-                    spy={true}
-                    smooth={false}
-                    offset={-70}
-                    duration={0}
-                    onClick={(e) => {
+                        }
+                      }}
+                    >
+                      <Icon className={`h-5 w-5 mr-3 ${activeSection === item.to ? 'text-primary' : ''}`} />
+                      <span>{item.name}</span>
+                      {activeSection === item.to && (
+                        <motion.div
+                          className="ml-auto flex items-center gap-1 bg-primary/20 px-2 py-0.5 rounded-md text-primary text-xs"
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                        >
+                          <span>Current</span>
+                          <ChevronRight className="h-4 w-4" />
+                        </motion.div>
+                      )}
+                    </ScrollLink>
+                  </motion.div>
+                );
+              })}
+
+              {/* Get Started button in mobile menu - enhanced */}
+              <motion.div
+                variants={itemAnimation}
+                custom={navItems.length}
+                initial="hidden"
+                animate="visible"
+                className="mt-6 pt-4 border-t border-gray-100 dark:border-gray-800"
+              >
+                <ScrollLink
+                  to="contact"
+                  spy={true}
+                  smooth={false}
+                  offset={-70}
+                  duration={0}
+                  onClick={(e) => {
+                    e.preventDefault();
+
+                    // Close menu immediately for better responsiveness
+                    closeMenu();
+
+                    // Update UI state immediately
+                    setActiveSection('contact');
+
+                    // Use optimized scroll
+                    scrollToElement(
+                      'contact',
+                      70,
+                      450,
+                      'easeOutQuad',
+                      () => handleSectionNavigation('contact', setActiveSection)
+                    );
+                  }}
+                  tabIndex={0}
+                  role="button"
+                  aria-label="Get Started - Contact Us"
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
                       e.preventDefault();
-                      
-                      // Close menu immediately for better responsiveness
                       closeMenu();
-                      
+
                       // Update UI state immediately
                       setActiveSection('contact');
-                      
-                      // Use optimized scroll
+
                       scrollToElement(
                         'contact',
                         70,
@@ -588,38 +632,19 @@ export default function Navbar() {
                         'easeOutQuad',
                         () => handleSectionNavigation('contact', setActiveSection)
                       );
-                    }}
-                    tabIndex={0}
-                    role="button"
-                    aria-label="Get Started - Contact Us"
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        closeMenu();
-                        
-                        // Update UI state immediately
-                        setActiveSection('contact');
-                        
-                        scrollToElement(
-                          'contact',
-                          70,
-                          450,
-                          'easeOutQuad',
-                          () => handleSectionNavigation('contact', setActiveSection)
-                        );
-                      }
-                    }}
-                    className="flex items-center justify-center w-full px-5 py-3.5 bg-primary text-white rounded-md font-medium hover:bg-primary/90 transition-all duration-300 shadow-md hover:shadow-lg border border-primary/30"
-                  >
-                    Get Started
-                    <ArrowRight className="h-4 w-4 ml-1.5" />
-                  </ScrollLink>
-                </motion.div>
-              </motion.nav>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+                    }
+                  }}
+                  className="flex items-center justify-center w-full px-5 py-3.5 bg-primary text-white rounded-md font-medium hover:bg-primary/90 transition-all duration-300 shadow-md hover:shadow-lg border border-primary/30"
+                >
+                  Get Started
+                  <ArrowRight className="h-4 w-4 ml-1.5" />
+                </ScrollLink>
+              </motion.div>
+            </motion.nav>
+          </motion.div>
+        </AnimatePresence>,
+        document.body
+      )}
       
       {/* Progress indicator for all devices - shows reading progress */}
       <motion.div 
