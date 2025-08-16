@@ -1,0 +1,254 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .section {
+    @apply py-24 md:py-32;
+  }
+  
+  .container {
+    @apply mx-auto w-full max-w-6xl px-4 md:px-6;
+  }
+  
+  .text-muted {
+    @apply text-gray-600 dark:text-gray-400;
+  }
+}
+
+@layer base {
+  /* Apply smooth scrolling by default */
+  html {
+    scroll-behavior: smooth;
+    /* Add offset for fixed header - helps with section anchoring */
+    scroll-padding-top: 80px;
+  }
+  
+  /* Respect user preference for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  
+  /* For JavaScript controlled reduced motion preference */
+  html.reduce-motion * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+  
+  /* Responsive font scaling for extra small and extra large screens */
+  @media (max-height: 700px) {
+    html {
+      font-size: 13px;
+    }
+    
+    .hero-compact {
+      padding-top: 0.5rem !important;
+      padding-bottom: 0.5rem !important;
+    }
+    
+    .hero-compact .hero-buttons {
+      margin-top: 0.5rem !important;
+    }
+    
+    .hero-compact .discover-more {
+      margin-top: 0.5rem !important;
+    }
+  }
+  
+  @media (max-width: 360px) {
+    html {
+      font-size: 14px;
+    }
+  }
+  
+  @media (min-width: 2000px) {
+    html {
+      font-size: 18px;
+    }
+  }
+  
+  @media (min-width: 2500px) {
+    html {
+      font-size: 20px;
+    }
+  }
+  
+  :root {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body {
+    @apply bg-gray-50 text-dark dark:bg-dark dark:text-gray-50;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md shadow-sm transition-all duration-300 ease-in-out;
+  }
+  
+  /* Hero section enhanced styles */
+  .hero-text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+    text-shadow: 0 20px 30px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Enhanced gradient with multiple colors for more visual impact */
+  .hero-text-gradient-enhanced {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(45deg, #6C5CE7, #00B4D8, #6C5CE7);
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease infinite;
+  }
+  
+  /* Animated gradient background */
+  @keyframes gradient-shift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  /* Enhanced grid background pattern */
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(to right, rgba(107, 92, 231, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(107, 92, 231, 0.08) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+  
+  /* Button animations */
+  .btn-primary {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255,255,255,0), rgba(255,255,255,0.2), rgba(255,255,255,0));
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+  
+  .btn-primary:hover::after {
+    transform: translateX(100%);
+  }
+  
+  /* Improved hero content spacing for better alignment */
+  .hero-content {
+    @apply flex flex-col items-center justify-center w-full;
+    min-height: 65vh;
+  }
+  
+  .compact-spacing {
+    min-height: 50vh;
+  }
+  
+  /* Enhanced discover more positioning */
+  .discover-more-desktop {
+    @apply flex flex-col items-center justify-center;
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: pulse 2s infinite;
+  }
+  
+  .discover-more-mobile {
+    @apply flex flex-col items-center justify-center mt-6 mx-auto;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+  }
+  
+  /* Ultra compact mode for very small screens */
+  .ultra-compact h1 {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 !important;
+  }
+  
+  .ultra-compact p {
+    @apply text-sm sm:text-base md:text-lg mb-3 !important;
+  }
+  
+  .ultra-compact .hero-buttons {
+    @apply gap-2 !important;
+  }
+  
+  .ultra-compact .discover-more-mobile {
+    @apply mt-4 !important;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary/90 focus:ring-2 focus:ring-primary/50 focus:outline-none;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-dark hover:bg-secondary/90 focus:ring-2 focus:ring-secondary/50 focus:outline-none;
+  }
+  
+  .btn-accent {
+    @apply bg-accent text-white hover:bg-accent/90 focus:ring-2 focus:ring-accent/50 focus:outline-none;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white focus:ring-2 focus:ring-primary/50 focus:outline-none;
+  }
+}
+
+@layer utilities {
+  .container {
+    @apply mx-auto px-4 sm:px-6 lg:px-8;
+    max-width: 1280px;
+  }
+  
+  .container-sm {
+    @apply mx-auto px-4 sm:px-6 lg:px-8;
+    max-width: 1024px;
+  }
+  
+  .container-xs {
+    @apply mx-auto px-4 sm:px-6 lg:px-8;
+    max-width: 768px;
+  }
+  
+  /* Background grid pattern for contact info section */
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+}
