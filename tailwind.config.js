@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
-const accessibleColors = require('./src/utils/accessibleColors');
+import accessibleColors from './src/utils/accessibleColors.js';
 
-module.exports = {
+export default {
   content: ['./index.html', './src/**/*.{js,jsx}'],
   theme: {
     extend: {
@@ -13,4 +13,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
+};

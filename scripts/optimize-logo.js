@@ -5,9 +5,14 @@
  * It creates variants for different parts of the site
  */
 
-const fs = require('fs');
-const path = require('path');
-const sharp = require('sharp');
+import fs from 'fs';
+import path from 'path';
+import sharp from 'sharp';
+import { fileURLToPath } from 'url';
+
+// Get the directory name equivalent to __dirname in CommonJS
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Define source and destinations
 const SOURCE_LOGO = path.join(__dirname, '../src/assets/webbuzz-logo.png');

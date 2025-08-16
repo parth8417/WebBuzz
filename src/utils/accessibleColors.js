@@ -1,7 +1,7 @@
 // WCAG 2.1 AA compliant colors
 // These colors have been checked for sufficient contrast ratios
 
-module.exports = {
+export default {
   primary: {
     DEFAULT: '#6C5CE7',     // High-contrast primary color
     light: '#8C7CF8',       // Lighter variant with sufficient contrast on dark backgrounds
