@@ -29,15 +29,6 @@
   background: rgba(255, 255, 255, 0.95);
 }
 
-/* Force mobile menu button visibility */
-@media (max-width: 768px) {
-  .mobile-menu-button {
-    display: block !important;
-    position: relative !important;
-    z-index: 100 !important;
-  }
-}
-
 .dark .navbar-glassmorphism.scrolled {
   background: rgba(17, 24, 39, 0.95);
 }
