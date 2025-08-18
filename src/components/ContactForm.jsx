@@ -196,7 +196,7 @@ function ContactForm() {
       id="contact" 
       ref={sectionRef}
       aria-label="Contact Us" 
-      className="section bg-gray-50 dark:bg-gray-900 py-12 md:py-16 relative overflow-hidden"
+      className="section bg-gray-50 dark:bg-gray-900 py-16 md:py-20 relative overflow-hidden"
     >
       {/* Background decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 dark:opacity-5 pointer-events-none">
@@ -258,6 +258,21 @@ function ContactForm() {
                 onClick={() => {
                   setFormData({...formData, service: service.id});
                   setShowForm(true);
+                  
+                  // Scroll to show the Contact Form header clearly
+                  setTimeout(() => {
+                    const formHeader = document.getElementById('contact-form-header');
+                    
+                    if (formHeader) {
+                      const headerRect = formHeader.getBoundingClientRect();
+                      const scrollPosition = window.pageYOffset + headerRect.top - 145; // Show header with padding above
+                      
+                      window.scrollTo({
+                        top: scrollPosition,
+                        behavior: 'smooth'
+                      });
+                    }
+                  }, 250); // Allow more time for the form to render
                 }}
               >
                 <div className={`rounded-full w-14 h-14 flex items-center justify-center mb-4 transition-colors
@@ -295,13 +310,13 @@ function ContactForm() {
               variants={formAnimation}
               initial="hidden"
               animate="visible"
-              className="bg-white dark:bg-gray-800 p-8 md:p-10 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 backdrop-blur-sm relative overflow-hidden"
+              className="bg-white dark:bg-gray-800 p-8 md:p-10 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 backdrop-blur-sm relative overflow-hidden mt-10 pt-5"
             >
               {/* Decorative elements inside form container */}
               <div className="absolute top-0 right-0 h-40 w-40 bg-primary/5 rounded-full -mr-20 -mt-20 z-0"></div>
               <div className="absolute bottom-0 left-0 h-32 w-32 bg-accent/5 rounded-full -ml-16 -mb-16 z-0"></div>
               <div className="relative z-10">
-                <div className="flex items-center justify-center mb-8">
+                <div className="flex items-center justify-center mb-8" id="contact-form-header">
                   <div className="bg-primary/10 dark:bg-primary/20 p-3 rounded-full">
                     <Mail className="h-6 w-6 text-primary" />
                   </div>

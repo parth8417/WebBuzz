@@ -2,6 +2,7 @@ import { motion, useReducedMotion, useInView } from 'framer-motion';
 import { Rocket, Users, Clock } from 'lucide-react';
 import { useRef } from 'react';
 import animations from '../utils/animations';
+import Workspace from '/Work.png';
 
 function About() {
   // Honor reduced motion preferences
@@ -69,7 +70,7 @@ function About() {
               <div className="relative z-10 bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl p-4 shadow-lg">
                 <div className="overflow-hidden rounded-lg">
                   <img 
-                    src="src/assets/optimized/about-image.svg" 
+                    src={Workspace} 
                     alt="WebBuzz Team at work" 
                     width="600" 
                     height="400"
@@ -81,7 +82,7 @@ function About() {
                 {/* Stats card overlay */}
                 <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-800 rounded-lg shadow-xl py-3 px-5 flex items-center gap-5">
                   <div className="text-center">
-                    <div className="font-bold text-xl text-primary">120+</div>
+                    <div className="font-bold text-xl text-primary">20+</div>
                     <div className="text-xs text-muted">Projects</div>
                   </div>
                   <div className="h-8 w-px bg-gray-200 dark:bg-gray-700"></div>
