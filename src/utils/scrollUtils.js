@@ -161,8 +161,24 @@ export const setupScrollSpy = (sections, setActiveSectionFn, options = {}) => {
   
   const observers = [];
   
+  // Ensure we're observing contact and footer sections too
+  const allSections = [...sections];
+  if (!allSections.includes('contact')) allSections.push('contact');
+  if (!allSections.includes('footer')) allSections.push('footer');
+  
   // Observer callback
   const observerCallback = (entries) => {
+    // Check if contact or footer sections are visible
+    const contactEntry = entries.find(entry => entry.target.id === 'contact');
+    const footerEntry = entries.find(entry => entry.target.id === 'footer');
+    
+    // If contact form or footer are in view, don't highlight any nav item
+    if ((contactEntry && contactEntry.isIntersecting) || 
+        (footerEntry && footerEntry.isIntersecting)) {
+      setActiveSectionFn('none'); // Special value to indicate no active section
+      return;
+    }
+    
     // Get all currently visible sections
     const visibleSections = entries
       .filter(entry => entry.isIntersecting)
@@ -194,7 +210,7 @@ export const setupScrollSpy = (sections, setActiveSectionFn, options = {}) => {
   };
   
   // Setup observers for each section
-  sections.forEach(sectionId => {
+  allSections.forEach(sectionId => {
     const sectionElement = document.getElementById(sectionId);
     
     if (!sectionElement) {

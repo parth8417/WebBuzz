@@ -28,6 +28,23 @@ export default function Navbar() {
   const determineActiveSection = useCallback(() => {
     const scrollPosition = window.scrollY + 100; // Add offset for better detection
     
+    // Check if we're in the contact form or footer sections first
+    const contactFormElement = document.getElementById('contact');
+    const footerElement = document.getElementById('footer');
+    
+    // If we're in contact form or footer, don't highlight any nav item
+    if (contactFormElement && 
+        scrollPosition >= contactFormElement.offsetTop && 
+        scrollPosition < contactFormElement.offsetTop + contactFormElement.offsetHeight) {
+      return 'none'; // Special value to indicate no active section
+    }
+    
+    if (footerElement && 
+        scrollPosition >= footerElement.offsetTop && 
+        scrollPosition < footerElement.offsetTop + footerElement.offsetHeight) {
+      return 'none'; // Special value to indicate no active section
+    }
+    
     // Find all section elements
     const sections = navItems.map(item => {
       const element = document.getElementById(item.to);
@@ -340,16 +357,16 @@ export default function Navbar() {
                       }
                     }}
                     className={`relative cursor-pointer transition-all px-3.5 py-3 mx-1.5 text-sm font-medium rounded-md overflow-hidden flex items-center justify-center gap-2 h-[48px] ${
-                      activeSection === item.to 
+                      activeSection === item.to && activeSection !== 'none'
                         ? 'text-primary' 
                         : `${scrolled ? 'text-gray-700 dark:text-gray-200' : 'text-gray-800 dark:text-gray-100'} hover:text-primary dark:hover:text-primary`
                     } focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2`}
                   >
-                    <Icon className={`h-4.5 w-4.5 ${activeSection === item.to ? 'text-primary' : ''} transition-all duration-300`} />
+                    <Icon className={`h-4.5 w-4.5 ${activeSection === item.to && activeSection !== 'none' ? 'text-primary' : ''} transition-all duration-300`} />
                     <span className="relative z-10 font-medium">{item.name}</span>
                     
                     {/* Active indicator with animation - enhanced */}
-                    {activeSection === item.to && (
+                    {activeSection === item.to && activeSection !== 'none' && (
                       <motion.div
                         className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary"
                         layoutId="activeSection"
@@ -543,7 +560,7 @@ export default function Navbar() {
                       tabIndex={0}
                       aria-current={activeSection === item.to ? 'page' : undefined}
                       className={`flex items-center w-full px-4 py-4 rounded-lg ${
-                        activeSection === item.to
+                        activeSection === item.to && activeSection !== 'none'
                           ? 'bg-primary/10 text-primary font-medium'
                           : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800/60 hover:text-primary'
                       } transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary`}
@@ -565,9 +582,9 @@ export default function Navbar() {
                         }
                       }}
                     >
-                      <Icon className={`h-5 w-5 mr-3 ${activeSection === item.to ? 'text-primary' : ''}`} />
+                      <Icon className={`h-5 w-5 mr-3 ${activeSection === item.to && activeSection !== 'none' ? 'text-primary' : ''}`} />
                       <span>{item.name}</span>
-                      {activeSection === item.to && (
+                      {activeSection === item.to && activeSection !== 'none' && (
                         <motion.div
                           className="ml-auto flex items-center gap-1 bg-primary/20 px-2 py-0.5 rounded-md text-primary text-xs"
                           initial={{ opacity: 0, x: -10 }}
