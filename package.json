@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "npm run optimize-images && npm run optimize-logo && vite build",
-    "build:vercel": "vite build",
+    "build:vercel": "CI=false vite build",
     "lint": "eslint .",
     "format": "prettier --write .",
     "preview": "vite preview",
@@ -15,6 +15,7 @@
     "lighthouse": "npx lighthouse http://localhost:4173/ --view --output-path=./lighthouse-report.html"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.5.0",
     "clsx": "^2.1.1",
     "firebase": "^12.1.0",
     "framer-motion": "^12.23.12",
