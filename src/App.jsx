@@ -7,6 +7,7 @@ import ContactInfo from './components/ContactInfo';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import { ReducedMotionHandler } from './utils/reducedMotion';
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   // Refs for each section for native smooth scrolling alternative
@@ -68,4 +69,12 @@ function App() {
       {/* Footer */}
       <div ref={sectionRefs.footer}>
         <Footer />
-      </div>    </div>  );}export default App;
+      </div>
+      
+      {/* Vercel Analytics */}
+      <Analytics />
+    </div>
+  );
+}
+
+export default App;
