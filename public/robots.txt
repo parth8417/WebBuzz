@@ -1,0 +1,6 @@
+# robots.txt for webbuzz.tech
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://webbuzz.tech/sitemap.xml
