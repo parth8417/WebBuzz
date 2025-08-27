@@ -2,5 +2,9 @@
 User-agent: *
 Allow: /
 
+# Important pages for indexing
+Allow: /about-webbuzz.html
+Allow: /index.html
+
 # Sitemap location
 Sitemap: https://webbuzz.tech/sitemap.xml
