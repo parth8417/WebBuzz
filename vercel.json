@@ -6,6 +6,16 @@
     }
   ],
   "redirects": [
+    {
+      "source": "^/webbuzz$",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "^/webbuzz-tech$",
+      "destination": "/",
+      "permanent": true
+    },
     { 
       "source": "/index.html", 
       "destination": "/", 
@@ -32,6 +42,19 @@
         {
           "key": "X-XSS-Protection",
           "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy", 
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    },
+    {
+      "source": "/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
         }
       ]
     },

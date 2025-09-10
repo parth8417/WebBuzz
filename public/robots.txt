@@ -2,9 +2,14 @@
 User-agent: *
 Allow: /
 
-# Important pages for indexing
+# Important pages for indexing - priority crawl
+Allow: /webbuzz.html
 Allow: /about-webbuzz.html
 Allow: /index.html
+Allow: /sitemap.html
+
+# Crawl rate settings
+Crawl-delay: 2
 
 # Sitemap location
 Sitemap: https://webbuzz.tech/sitemap.xml
