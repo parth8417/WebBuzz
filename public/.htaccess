@@ -13,9 +13,9 @@ RewriteRule ^(.*)$ https://webbuzz.tech/$1 [L,R=301]
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
 RewriteRule ^index\.html$ https://webbuzz.tech/ [R=301,L]
 
-# Redirect /webbuzz to /webbuzz.html
-RewriteCond %{REQUEST_URI} ^/webbuzz$
-RewriteRule ^webbuzz$ webbuzz.html [L,R=301]
+# Redirect /webbuzz and /webbuzz.html to the homepage for SEO consolidation
+RewriteCond %{REQUEST_URI} ^/webbuzz(\.html)?$
+RewriteRule ^webbuzz(\.html)?$ https://webbuzz.tech/ [L,R=301]
 
 # Redirect /about-webbuzz to /about-webbuzz.html
 RewriteCond %{REQUEST_URI} ^/about-webbuzz$

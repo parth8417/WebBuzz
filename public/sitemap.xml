@@ -5,9 +5,11 @@
   <!-- Homepage -->
   <url>
     <loc>https://webbuzz.tech/</loc>
-    <lastmod>2025-09-10</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2025-09-17</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <!-- Add link to indicate this is the main webbuzz page -->
+    <xhtml:link rel="alternate" href="https://webbuzz.tech/webbuzz.html"/>
   </url>
   
   <!-- Sections as URL fragments -->
@@ -30,8 +32,9 @@
     <loc>https://webbuzz.tech/webbuzz.html</loc>
     <lastmod>2025-09-17</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" href="https://webbuzz.tech/webbuzz"/>
+    <xhtml:link rel="canonical" href="https://webbuzz.tech/"/>
   </url>
   
   <url>

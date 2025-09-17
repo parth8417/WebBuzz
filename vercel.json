@@ -7,8 +7,13 @@
   ],
   "redirects": [
     {
+      "source": "/webbuzz.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/webbuzz",
-      "destination": "/webbuzz.html",
+      "destination": "/",
       "permanent": true
     },
     {
