@@ -4,37 +4,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <!-- Homepage -->
   <url>
-    <loc>https://webbuzz.tech/</loc>
+    <loc>https://www.webbuzz.tech/</loc>
     <lastmod>2025-09-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <!-- Add link to indicate this is the main webbuzz page -->
-    <xhtml:link rel="alternate" href="https://webbuzz.tech/webbuzz.html"/>
+    <xhtml:link rel="alternate" href="https://www.webbuzz.tech/webbuzz.html"/>
   </url>
   
   <!-- Sections as URL fragments -->
   <url>
-    <loc>https://webbuzz.tech/#home</loc>
-    <lastmod>2025-09-10</lastmod>
+    <loc>https://www.webbuzz.tech/#home</loc>
+    <lastmod>2025-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://webbuzz.tech/#about</loc>
-    <lastmod>2025-09-10</lastmod>
+    <loc>https://www.webbuzz.tech/#about</loc>
+    <lastmod>2025-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <!-- Webbuzz specific landing pages -->
   <url>
-    <loc>https://webbuzz.tech/webbuzz.html</loc>
+    <loc>https://www.webbuzz.tech/webbuzz.html</loc>
     <lastmod>2025-09-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" href="https://webbuzz.tech/webbuzz"/>
-    <xhtml:link rel="canonical" href="https://webbuzz.tech/"/>
+    <xhtml:link rel="alternate" href="https://www.webbuzz.tech/webbuzz"/>
+    <xhtml:link rel="canonical" href="https://www.webbuzz.tech/"/>
   </url>
   
   <url>

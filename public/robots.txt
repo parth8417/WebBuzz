@@ -1,4 +1,4 @@
-# robots.txt for webbuzz.tech
+# robots.txt for www.webbuzz.tech
 User-agent: *
 Allow: /
 
@@ -12,4 +12,4 @@ Allow: /sitemap.html
 Crawl-delay: 2
 
 # Sitemap location
-Sitemap: https://webbuzz.tech/sitemap.xml
+Sitemap: https://www.webbuzz.tech/sitemap.xml

@@ -1,17 +1,17 @@
-# Redirect www to non-www and enforce HTTPS
+# Redirect non-www to www and enforce HTTPS
 RewriteEngine On
 
 # Redirect HTTP to HTTPS
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Redirect www to non-www
-RewriteCond %{HTTP_HOST} ^www\.webbuzz\.tech [NC]
-RewriteRule ^(.*)$ https://webbuzz.tech/$1 [L,R=301]
+# Redirect non-www to www
+RewriteCond %{HTTP_HOST} ^webbuzz\.tech [NC]
+RewriteRule ^(.*)$ https://www.webbuzz.tech/$1 [L,R=301]
 
 # Prevent redirect loops
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
-RewriteRule ^index\.html$ https://webbuzz.tech/ [R=301,L]
+RewriteRule ^index\.html$ https://www.webbuzz.tech/ [R=301,L]
 
 # Redirect /webbuzz and /webbuzz.html to the homepage for SEO consolidation
 RewriteCond %{REQUEST_URI} ^/webbuzz(\.html)?$

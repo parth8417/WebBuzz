@@ -1,4 +1,8 @@
 {
+  "domains": [
+    "www.webbuzz.tech",
+    "webbuzz.tech"
+  ],
   "rewrites": [
     {
       "source": "/((?!.*\\.html$|.*\\.[a-zA-Z0-9]+$).*)",
@@ -6,6 +10,17 @@
     }
   ],
   "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "webbuzz-tech.vercel.app"
+        }
+      ],
+      "destination": "https://www.webbuzz.tech/$1",
+      "permanent": true
+    },
     {
       "source": "/webbuzz.html",
       "destination": "/",
@@ -29,6 +44,17 @@
     {
       "source": "/:path+/",
       "destination": "/:path+",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "webbuzz.tech"
+        }
+      ],
+      "destination": "https://www.webbuzz.tech/$1",
       "permanent": true
     }
   ],
