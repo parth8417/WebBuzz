@@ -13,6 +13,14 @@ RewriteRule ^(.*)$ https://webbuzz.tech/$1 [L,R=301]
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
 RewriteRule ^index\.html$ https://webbuzz.tech/ [R=301,L]
 
+# Redirect /webbuzz to /webbuzz.html
+RewriteCond %{REQUEST_URI} ^/webbuzz$
+RewriteRule ^webbuzz$ webbuzz.html [L,R=301]
+
+# Redirect /about-webbuzz to /about-webbuzz.html
+RewriteCond %{REQUEST_URI} ^/about-webbuzz$
+RewriteRule ^about-webbuzz$ about-webbuzz.html [L,R=301]
+
 # Handle trailing slashes consistently - remove them
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)/$ /$1 [L,R=301]

@@ -1,19 +1,19 @@
 {
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!.*\\.html$|.*\\.[a-zA-Z0-9]+$).*)",
       "destination": "/index.html"
     }
   ],
   "redirects": [
     {
-      "source": "^/webbuzz$",
-      "destination": "/",
+      "source": "/webbuzz",
+      "destination": "/webbuzz.html",
       "permanent": true
     },
     {
-      "source": "^/webbuzz-tech$",
-      "destination": "/",
+      "source": "/about-webbuzz",
+      "destination": "/about-webbuzz.html",
       "permanent": true
     },
     { 
