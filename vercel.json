@@ -1,8 +1,4 @@
 {
-  "domains": [
-    "www.webbuzz.tech",
-    "webbuzz.tech"
-  ],
   "rewrites": [
     {
       "source": "/((?!.*\\.html$|.*\\.[a-zA-Z0-9]+$).*)",
