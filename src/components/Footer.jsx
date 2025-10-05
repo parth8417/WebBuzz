@@ -15,7 +15,7 @@ function Footer() {
   ];
 
   const contactInfo = [
-    { icon: <Phone size={16} />, text: '+91-9586816799', href: 'tel:+919586816799' },
+    { icon: <Phone size={16} />, text: 'Temporarily Not Available', href: 'tel:Temporarily Not Available' },
     { icon: <Mail size={16} />, text: 'WebBuzz03@gmail.com', href: 'mailto:webbuzz03@gmail.com' },
     { icon: <MapPin size={16} />, text: 'Ahmedabad, Gujarat, India', href: 'https://maps.google.com/?q=Ahmedabad,Gujarat,India' }
   ];

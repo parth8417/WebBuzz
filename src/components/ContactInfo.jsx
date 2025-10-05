@@ -25,8 +25,8 @@ function ContactInfo() {
   const itemAnimationVariants = prefersReducedMotion ? animations.reducedMotion : itemVariants;
   
   // Phone number with country code
-  const phoneNumber = "+919586816799";
-  const whatsappNumber = "+919586816799";
+  const phoneNumber = "*";
+  const whatsappNumber = "*";
 
   return (
     <section id="contact-info" className="section bg-gradient-to-b from-secondary to-secondary-dark dark:from-dark dark:to-darker py-16 md:py-24 relative overflow-hidden">
@@ -84,7 +84,7 @@ function ContactInfo() {
             <h3 className="text-xl font-bold mb-2 text-white text-center">Phone</h3>
             
             <p className="text-gray-300 text-center mb-4 flex-grow">
-              +91-9586816799
+              Temporarily Not Available
             </p>
             
             <a 
