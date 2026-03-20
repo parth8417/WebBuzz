@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import { motion, useReducedMotion } from 'framer-motion';
 import { Phone, Mail, MapPin, Linkedin, Instagram, Facebook, Clock, MessageCircle, ExternalLink, ArrowRight } from 'lucide-react';
 import animations from '../utils/animations';
@@ -25,8 +26,8 @@ function ContactInfo() {
   const itemAnimationVariants = prefersReducedMotion ? animations.reducedMotion : itemVariants;
   
   // Phone number with country code
-  const phoneNumber = "*";
-  const whatsappNumber = "*";
+  const phoneNumber = "+919586816799";
+  const whatsappNumber = "+919586816799";
 
   return (
     <section id="contact-info" className="section bg-gradient-to-b from-secondary to-secondary-dark dark:from-dark dark:to-darker py-16 md:py-24 relative overflow-hidden">
