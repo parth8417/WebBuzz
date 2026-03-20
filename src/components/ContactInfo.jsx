@@ -85,7 +85,7 @@ function ContactInfo() {
             <h3 className="text-xl font-bold mb-2 text-white text-center">Phone</h3>
             
             <p className="text-gray-300 text-center mb-4 flex-grow">
-              Temporarily Not Available
+             {phoneNumber}
             </p>
             
             <a 
