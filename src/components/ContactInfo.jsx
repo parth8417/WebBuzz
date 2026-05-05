@@ -26,8 +26,8 @@ function ContactInfo() {
   const itemAnimationVariants = prefersReducedMotion ? animations.reducedMotion : itemVariants;
   
   // Phone number with country code
-  const phoneNumber = "+919586816799";
-  const whatsappNumber = "+919586816799";
+  const phoneNumber = "+918128303618";
+  const whatsappNumber = "+918128303618";
 
   return (
     <section id="contact-info" className="section bg-gradient-to-b from-secondary to-secondary-dark dark:from-dark dark:to-darker py-16 md:py-24 relative overflow-hidden">
@@ -111,11 +111,11 @@ function ContactInfo() {
             <h3 className="text-xl font-bold mb-2 text-white text-center">Email</h3>
             
             <p className="text-gray-300 text-center mb-4 flex-grow">
-              WebBuzz03@gmail.com
+              webbuzzofficial@gmail.com
             </p>
             
             <a 
-              href="mailto:webbuzz03@gmail.com"
+              href="mailto:webbuzzofficial@gmail.com"
               className="mt-2 flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-primary text-white transition-colors text-sm font-medium hover:bg-primary-light"
             >
               <span>Send email</span>
