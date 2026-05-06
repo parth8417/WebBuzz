@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
+import Testimonials from './components/Testimonials';
 import ContactInfo from './components/ContactInfo';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
@@ -15,6 +16,7 @@ function App() {
     home: useRef(null),
     about: useRef(null),
     services: useRef(null),
+    reviews: useRef(null),
     contactInfo: useRef(null),
     contact: useRef(null),
     footer: useRef(null)
@@ -53,6 +55,11 @@ function App() {
         {/* Services Section */}
         <div ref={sectionRefs.services}>
           <Services />
+        </div>
+        
+        {/* Testimonials / Reviews Section */}
+        <div ref={sectionRefs.reviews}>
+          <Testimonials />
         </div>
         
         {/* Contact Info Section */}

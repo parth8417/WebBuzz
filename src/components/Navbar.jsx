@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { Menu, X, ChevronRight, ArrowRight, Home, Info, Briefcase, PhoneCall } from 'lucide-react';
+import { Menu, X, ChevronRight, ArrowRight, Home, Info, Briefcase, Star, PhoneCall } from 'lucide-react';
 import { Link as ScrollLink } from 'react-scroll';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import animations from '../utils/animations';
@@ -11,6 +11,7 @@ const navItems = [
   { name: 'Home', to: 'home', icon: Home },
   { name: 'About', to: 'about', icon: Info },
   { name: 'Services', to: 'services', icon: Briefcase },
+  { name: 'Reviews', to: 'reviews', icon: Star },
   { name: 'Contact', to: 'contact-info', icon: PhoneCall }
 ];
 
@@ -243,7 +244,7 @@ export default function Navbar() {
   return (
     <motion.nav 
       ref={navRef}
-      className={`fixed top-0 left-0 right-0 z-50 navbar-glassmorphism bg-white/95 dark:bg-gray-900/95 shadow-lg backdrop-blur-md py-2.5 scrolled`}
+      className={`fixed top-0 left-0 right-0 z-50 navbar-glassmorphism bg-gray-900/95 shadow-lg backdrop-blur-md py-2.5 scrolled`}
       role="navigation"
       aria-label="Main navigation"
       initial={{ opacity: 0, y: -20 }}
@@ -359,7 +360,7 @@ export default function Navbar() {
                     className={`relative cursor-pointer transition-all px-3.5 py-3 mx-1.5 text-sm font-medium rounded-md overflow-hidden flex items-center justify-center gap-2 h-[48px] ${
                       activeSection === item.to && activeSection !== 'none'
                         ? 'text-primary' 
-                        : `${scrolled ? 'text-gray-700 dark:text-gray-200' : 'text-gray-800 dark:text-gray-100'} hover:text-primary dark:hover:text-primary`
+                        : `${scrolled ? 'text-gray-200' : 'text-gray-100'} hover:text-primary`
                     } focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2`}
                   >
                     <Icon className={`h-4.5 w-4.5 ${activeSection === item.to && activeSection !== 'none' ? 'text-primary' : ''} transition-all duration-300`} />
@@ -440,7 +441,7 @@ export default function Navbar() {
               className={`inline-flex items-center justify-center gap-1.5 px-5 py-2.5 text-sm font-medium rounded-md btn-get-started ${
                 scrolled
                   ? 'bg-primary text-white hover:bg-primary/90 shadow-md hover:shadow-lg hover:translate-y-[-1px]'
-                  : 'bg-white dark:bg-gray-800 text-primary hover:text-white hover:bg-primary shadow-md hover:shadow-lg border border-primary/30 backdrop-blur-sm hover:translate-y-[-1px]'
+                  : 'bg-gray-800 text-primary hover:text-white hover:bg-primary shadow-md hover:shadow-lg border border-primary/30 backdrop-blur-sm hover:translate-y-[-1px]'
               } transition-all duration-300`}
             >
               Get Started
@@ -457,8 +458,8 @@ export default function Navbar() {
           aria-label={isOpen ? "Close menu" : "Open menu"}
           className={`p-2.5 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
             scrolled
-              ? 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700'
-              : 'bg-white/20 dark:bg-gray-800/40 text-gray-900 dark:text-white hover:bg-white/30 dark:hover:bg-gray-800/60 backdrop-blur-sm'
+              ? 'bg-gray-800 text-gray-200 hover:bg-gray-700'
+              : 'bg-gray-800/40 text-white hover:bg-gray-800/60 backdrop-blur-sm'
           } md:hidden transition-all duration-300 z-50 block`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -475,7 +476,7 @@ export default function Navbar() {
         <AnimatePresence>
           {/* Backdrop overlay - click to close */}
           <motion.div
-            className="md:hidden fixed inset-0 bg-black/25 dark:bg-black/50 backdrop-blur-sm z-[60]"
+            className="md:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-[60]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -487,7 +488,7 @@ export default function Navbar() {
           <motion.div
             id="mobile-menu"
             ref={mobileMenuRef}
-            className="md:hidden fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-white dark:bg-gray-900 shadow-xl z-[70] overflow-y-auto overscroll-contain"
+            className="md:hidden fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-gray-900 shadow-xl z-[70] overflow-y-auto overscroll-contain"
             variants={{
               hidden: { x: '100%', opacity: 0.5 },
               visible: { x: 0, opacity: 1 }
@@ -506,19 +507,19 @@ export default function Navbar() {
             aria-label="Navigation menu"
           >
             {/* Panel header with close button */}
-            <div className="sticky top-0 z-10 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-b border-gray-100 dark:border-gray-800 px-4 py-3 flex items-center justify-between">
-              <span className="text-sm font-semibold text-gray-700 dark:text-gray-200">Menu</span>
+            <div className="sticky top-0 z-10 bg-gray-900/90 backdrop-blur-sm border-b border-gray-800 px-4 py-3 flex items-center justify-between">
+              <span className="text-sm font-semibold text-gray-200">Menu</span>
               <button
                 onClick={closeMenu}
                 aria-label="Close menu"
-                className="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                className="p-2 rounded-md hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               >
                 <X className="h-5 w-5" />
               </button>
             </div>
             <motion.nav className="px-4 pt-4 pb-6 space-y-2" role="menu">
-              <div className="border-b border-gray-100 dark:border-gray-800 pb-2 mb-2">
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 px-2">NAVIGATION</p>
+              <div className="border-b border-gray-800 pb-2 mb-2">
+                <p className="text-sm font-medium text-gray-400 px-2">NAVIGATION</p>
               </div>
 
               {navItems.map((item, index) => {
@@ -562,7 +563,7 @@ export default function Navbar() {
                       className={`flex items-center w-full px-4 py-4 rounded-lg ${
                         activeSection === item.to && activeSection !== 'none'
                           ? 'bg-primary/10 text-primary font-medium'
-                          : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800/60 hover:text-primary'
+                          : 'text-gray-200 hover:bg-gray-800/60 hover:text-primary'
                       } transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary`}
                       onKeyDown={(e) => {
                         if (e.key === 'Enter' || e.key === ' ') {
@@ -605,7 +606,7 @@ export default function Navbar() {
                 custom={navItems.length}
                 initial="hidden"
                 animate="visible"
-                className="mt-6 pt-4 border-t border-gray-100 dark:border-gray-800"
+                className="mt-6 pt-4 border-t border-gray-800"
               >
                 <ScrollLink
                   to="contact"

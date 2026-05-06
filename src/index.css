@@ -96,7 +96,7 @@
   }
   
   body {
-    @apply bg-gray-50 text-dark dark:bg-dark dark:text-gray-50;
+    @apply bg-dark text-gray-50;
     min-height: 100vh;
   }
 }
