@@ -14,14 +14,23 @@ const stats = [
 
 const testimonials = [
   {
-    name: 'Arjun Mehta',
-    business: 'Tech Startup Founder',
-    initials: 'AM',
-    color: 'from-violet-500 to-indigo-500',
-    rating: 5,
-    review:
-      'WebBuzz transformed our online presence completely. The website they built is sleek, fast, and converts like crazy. Best investment we made.',
-  },
+  name: 'Hemang Mevada',
+  business: 'Dairy Business Owner',
+  initials: 'HM',
+  color: 'from-cyan-500 to-blue-500',
+  rating: 5,
+  review:
+    'WebBuzz developed a complete Dairy Management System for our business. From employee salary tracking to credit management and daily records, everything is now organized and easy to manage. The system is smooth, modern, and saves us a lot of time.',
+},
+{
+  name: 'Harshdip Gohil',
+  business: 'Stationery Store Owner',
+  initials: 'HG',
+  color: 'from-violet-500 to-purple-500',
+  rating: 5,
+  review:
+    'WebBuzz created an amazing e-commerce website for our stationery business. The design is clean, professional, and very user-friendly. Managing products and orders is now simple, and our online sales have improved significantly.',
+},
   {
     name: 'Priya Sharma',
     business: 'E-commerce Brand Owner',
