@@ -188,7 +188,7 @@ function ContactInfo() {
             
             {/* Instagram */}
             <a
-              href="https://www.instagram.com/webbuzz.tech/"
+              href="https://www.instagram.com/webbuzz_tech/"
               className="p-3 rounded-full bg-gray-700 hover:bg-gradient-to-br hover:from-purple-600 hover:to-orange-500 transition-all duration-300 shadow-md hover:shadow-lg hover:scale-110"
               aria-label="Follow us on Instagram"
               target="_blank"

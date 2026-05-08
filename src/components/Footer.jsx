@@ -31,7 +31,7 @@ function Footer() {
     { 
       icon: <Instagram size={18} />, 
       name: 'Instagram', 
-      href: 'https://www.instagram.com/webbuzz.tech/', 
+      href: 'https://www.instagram.com/webbuzz_tech/', 
       color: '#E4405F',
       hoverClass: 'hover:bg-gradient-to-tr hover:from-[#FFDC80] hover:via-[#E4405F] hover:to-[#8A3AB9]'
     },
