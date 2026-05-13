@@ -176,7 +176,7 @@ function ContactInfo() {
             
             {/* LinkedIn */}
             <a
-              href="#"
+              href="https://www.linkedin.com/in/webbuzz-webbuzz-tech-1946b840a"
               className="p-3 rounded-full bg-gray-700 hover:bg-primary/80 transition-all duration-300 shadow-md hover:shadow-lg hover:scale-110"
               aria-label="Follow us on LinkedIn"
               target="_blank"
