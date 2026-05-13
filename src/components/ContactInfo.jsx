@@ -30,7 +30,7 @@ function ContactInfo() {
   const whatsappNumber = "+918128303618";
 
   return (
-    <section id="contact-info" className="section bg-gradient-to-b from-secondary to-secondary-dark dark:from-dark dark:to-darker py-16 md:py-24 relative overflow-hidden">
+    <section id="contact-info" className="section bg-gradient-to-b from-secondary to-secondary-dark dark:from-dark dark:to-darker py-16 md:py-24 relative overflow-hidden" aria-label="Contact WebBuzz - Web Design & Digital Marketing Agency" itemScope itemType="https://schema.org/LocalBusiness">
       {/* Background decoration elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         {/* Gradient orbs */}
@@ -82,7 +82,7 @@ function ContactInfo() {
               </div>
             </div>
             
-            <h3 className="text-xl font-bold mb-2 text-white text-center">Phone</h3>
+            <h3 className="text-xl font-bold mb-2 text-white text-center" itemProp="telephone">Phone</h3>
             
             <p className="text-gray-300 text-center mb-4 flex-grow">
              {phoneNumber}
@@ -108,7 +108,7 @@ function ContactInfo() {
               </div>
             </div>
             
-            <h3 className="text-xl font-bold mb-2 text-white text-center">Email</h3>
+            <h3 className="text-xl font-bold mb-2 text-white text-center" itemProp="email">Email</h3>
             
             <p className="text-gray-300 text-center mb-4 flex-grow">
             webbuzzofficial@gmail.com</p>
@@ -135,8 +135,8 @@ function ContactInfo() {
             
             <h3 className="text-xl font-bold mb-2 text-white text-center">Location</h3>
             
-            <p className="text-gray-300 text-center mb-4 flex-grow">
-              Ahmedabad, Gujarat, India
+            <p className="text-gray-300 text-center mb-4 flex-grow" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+              <span itemProp="addressLocality">Ahmedabad</span>, <span itemProp="addressRegion">Gujarat</span>, <span itemProp="addressCountry">India</span>
             </p>
             
             <a 

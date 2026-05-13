@@ -52,7 +52,7 @@ function Footer() {
   ];
 
   return (
-    <footer id="footer" className="relative bg-dark text-white pt-12 md:pt-14 pb-6 mt-8">
+    <footer id="footer" className="relative bg-dark text-white pt-12 md:pt-14 pb-6 mt-8" role="contentinfo" itemScope itemType="https://schema.org/WPFooter">
       {/* Top border with gradient */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-primary"></div>
       
@@ -88,7 +88,7 @@ function Footer() {
               />
             </div>
             <p className="text-gray-400 mb-4 max-w-sm text-base leading-relaxed">
-              Accelerating digital growth for businesses with innovative web solutions and 24/7 reliable support.
+              WebBuzz is a leading web design agency and digital marketing company in Ahmedabad, India. We accelerate digital growth for businesses with innovative web development, SEO services, and 24/7 reliable support.
             </p>
             
             {/* Online Support Badge - Moved from Business Hours section */}

@@ -38,8 +38,10 @@ function About() {
     <section 
       id="about" 
       ref={sectionRef}
-      aria-label="About Us" 
+      aria-label="About WebBuzz - Web Design & Digital Marketing Company" 
       className="section py-16 md:py-24 bg-white dark:bg-dark"
+      itemScope
+      itemType="https://schema.org/AboutPage"
     >
       <div className="container px-4 mx-auto">
         {/* Section header */}
@@ -102,6 +104,11 @@ function About() {
               We are a 24/7 digital solutions company helping businesses grow online through stunning websites, 
               creative designs, and result-driven marketing strategies that deliver measurable results.
             </p>
+            <span className="sr-only">
+              WebBuzz Tech is a premier website development company and branding agency based in Ahmedabad, India. 
+              Our expertise spans web design, software development, ecommerce website development, UI UX design, 
+              SEO services, social media marketing, and comprehensive digital marketing solutions.
+            </span>
             
             {/* Highlights with icons */}
             <div className="space-y-5">

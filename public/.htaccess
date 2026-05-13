@@ -1,5 +1,11 @@
-# Redirect non-www to www and enforce HTTPS
+# WebBuzz SEO-Optimized .htaccess
+# Last updated: 2026-05-13
+
 RewriteEngine On
+
+# ===========================
+# HTTPS + WWW Enforcement
+# ===========================
 
 # Redirect HTTP to HTTPS
 RewriteCond %{HTTPS} off
@@ -9,52 +15,145 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteCond %{HTTP_HOST} ^webbuzz\.tech [NC]
 RewriteRule ^(.*)$ https://www.webbuzz.tech/$1 [L,R=301]
 
-# Prevent redirect loops
+# ===========================
+# URL Canonicalization
+# ===========================
+
+# Redirect /index.html to root
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
 RewriteRule ^index\.html$ https://www.webbuzz.tech/ [R=301,L]
 
-# Redirect /webbuzz and /webbuzz.html to the homepage for SEO consolidation
-RewriteCond %{REQUEST_URI} ^/webbuzz(\.html)?$
-RewriteRule ^webbuzz(\.html)?$ https://webbuzz.tech/ [L,R=301]
+# Redirect /webbuzz and /webbuzz.html to homepage (consolidate duplicate content)
+RewriteRule ^webbuzz(\.html)?$ https://www.webbuzz.tech/ [L,R=301]
 
-# Redirect /about-webbuzz to /about-webbuzz.html
-RewriteCond %{REQUEST_URI} ^/about-webbuzz$
-RewriteRule ^about-webbuzz$ about-webbuzz.html [L,R=301]
+# Redirect /about-webbuzz and /about-webbuzz.html to homepage
+RewriteRule ^about-webbuzz(\.html)?$ https://www.webbuzz.tech/ [L,R=301]
 
-# Handle trailing slashes consistently - remove them
+# Redirect /sitemap.html to /sitemap.xml
+RewriteRule ^sitemap\.html$ https://www.webbuzz.tech/sitemap.xml [L,R=301]
+
+# Remove trailing slashes (except for directories)
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)/$ /$1 [L,R=301]
 
-# Set default index file
+# ===========================
+# Default Settings
+# ===========================
+
 DirectoryIndex index.html
 
-# Set correct content types
+# Set correct MIME types
 AddType application/json .json
 AddType text/xml .xml
+AddType application/xml .xml
+AddType text/plain .txt
+AddType application/manifest+json .webmanifest
 
-# Enable CORS
+# ===========================
+# Security Headers
+# ===========================
+
 <IfModule mod_headers.c>
-    Header set Access-Control-Allow-Origin "*"
+    # HSTS - Force HTTPS for 2 years
+    Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+
+    # Prevent MIME-type sniffing
+    Header set X-Content-Type-Options "nosniff"
+
+    # Clickjacking protection
+    Header set X-Frame-Options "DENY"
+
+    # XSS Protection
+    Header set X-XSS-Protection "1; mode=block"
+
+    # Referrer Policy
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Permissions Policy
+    Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+
+    # X-Robots-Tag for .html files (noindex duplicates)
+    <FilesMatch "\.(html)$">
+        Header set X-Robots-Tag "noindex, nofollow"
+    </FilesMatch>
+
+    # Override: Allow indexing for index.html (served as /)
+    <Files "index.html">
+        Header set X-Robots-Tag "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    </Files>
 </IfModule>
 
-# Browser caching
+# ===========================
+# Browser Caching
+# ===========================
+
 <IfModule mod_expires.c>
     ExpiresActive On
+
+    # Images - cache for 1 year
     ExpiresByType image/jpg "access plus 1 year"
     ExpiresByType image/jpeg "access plus 1 year"
     ExpiresByType image/gif "access plus 1 year"
     ExpiresByType image/png "access plus 1 year"
-    ExpiresByType image/svg+xml "access plus 1 month"
-    ExpiresByType text/css "access plus 1 month"
-    ExpiresByType text/html "access plus 1 week"
-    ExpiresByType application/pdf "access plus 1 month"
-    ExpiresByType application/javascript "access plus 1 month"
-    ExpiresByType application/x-javascript "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+
+    # CSS/JS - cache for 1 year (Vite hashes filenames)
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType application/x-javascript "access plus 1 year"
+
+    # Fonts - cache for 1 year
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+
+    # HTML - don't cache (always revalidate)
+    ExpiresByType text/html "access plus 0 seconds"
+
+    # JSON - don't cache
     ExpiresByType application/json "access plus 0 seconds"
+
+    # XML - short cache
+    ExpiresByType text/xml "access plus 1 hour"
+    ExpiresByType application/xml "access plus 1 hour"
+
+    # Manifest
+    ExpiresByType application/manifest+json "access plus 1 day"
+
+    # Default
     ExpiresDefault "access plus 1 month"
 </IfModule>
 
-# Compress text files
+# ===========================
+# Compression
+# ===========================
+
 <IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE application/manifest+json
+    AddOutputFilterByType DEFLATE font/woff
+    AddOutputFilterByType DEFLATE font/ttf
+</IfModule>
+
+# ===========================
+# ETags
+# ===========================
+
+<IfModule mod_headers.c>
+    # Remove ETags for hashed static assets (filename-based cache busting)
+    <FilesMatch "\.(css|js|png|jpg|jpeg|gif|webp|svg|woff2|woff|ttf)$">
+        Header unset ETag
+        FileETag None
+    </FilesMatch>
 </IfModule>

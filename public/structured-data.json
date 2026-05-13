@@ -1,41 +1,50 @@
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "@id": "https://webbuzz.tech/",
-  "name": "Webbuzz",
-  "alternateName": "Webbuzz Tech",
-  "description": "Your 24/7 digital solutions company for web development, graphic design, and digital marketing services.",
-  "url": "https://webbuzz.tech/",
-  "logo": "https://webbuzz.tech/webbuzz-logo.png",
-  "image": "https://webbuzz.tech/og-image.png",
+  "@id": "https://www.webbuzz.tech/#professional-service",
+  "name": "WebBuzz",
+  "alternateName": ["WebBuzz Tech", "Webbuzz"],
+  "description": "WebBuzz is a leading web design agency and digital marketing company in Ahmedabad, India. We offer web development, UI/UX design, SEO services, ecommerce website development, graphic design, branding, and social media marketing solutions with 24/7 support.",
+  "url": "https://www.webbuzz.tech/",
+  "logo": "https://www.webbuzz.tech/webbuzz-logo.png",
+  "image": "https://www.webbuzz.tech/webbuzz-logo.png",
   "email": "webbuzzofficial@gmail.com",
   "telephone": "+918128303618",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Ahmedabad",
     "addressRegion": "Gujarat",
-    "addressCountry": "India"
+    "postalCode": "380015",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 23.0225,
+    "longitude": 72.5714
   },
   "sameAs": [
+    "https://www.linkedin.com/in/webbuzz-webbuzz-tech-1946b840a",
+    "https://www.instagram.com/webbuzz.tech/",
     "https://www.instagram.com/webbuzz_tech/",
-    "https://www.facebook.com/webbuzztech/"
+    "https://www.facebook.com/share/1QbRTxw3G6/"
   ],
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
+      "Monday", "Tuesday", "Wednesday", "Thursday",
+      "Friday", "Saturday", "Sunday"
     ],
     "opens": "00:00",
     "closes": "23:59"
   },
   "priceRange": "$$",
-  "keywords": ["Webbuzz", "Webbuzz Tech", "web development", "graphic design", "digital marketing", "SEO", "responsive websites"],
+  "keywords": [
+    "web design", "web development", "SEO agency", "digital marketing",
+    "social media marketing", "website development company", "branding agency",
+    "UI UX design", "ecommerce website development", "software development",
+    "graphic design", "marketing agency", "SEO services", "web design agency",
+    "digital agency", "WebBuzz", "WebBuzz Tech"
+  ],
   "serviceArea": {
     "@type": "GeoCircle",
     "geoMidpoint": {
@@ -45,6 +54,49 @@
     },
     "geoRadius": "50000"
   },
-  "knowsAbout": ["Web Development", "Graphic Design", "Digital Marketing", "SEO", "Responsive Design"],
-  "areaServed": ["India", "Global"]
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "WebBuzz Digital Services",
+    "itemListElement": [
+      {
+        "@type": "OfferCatalog",
+        "name": "Web Design & Development",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Website Design" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ecommerce Website Development" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "UI/UX Design" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Software Development" } }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Graphic Design & Branding",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Logo Design" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brand Identity Design" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Marketing Materials Design" } }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Digital Marketing & SEO",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO Services" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Marketing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "PPC Advertising" } }
+        ]
+      }
+    ]
+  },
+  "knowsAbout": [
+    "Web Design", "Web Development", "Graphic Design", "Digital Marketing",
+    "SEO", "Social Media Marketing", "Responsive Design", "Ecommerce Development",
+    "UI/UX Design", "Branding", "Software Development"
+  ],
+  "areaServed": [
+    { "@type": "City", "name": "Ahmedabad" },
+    { "@type": "State", "name": "Gujarat" },
+    { "@type": "Country", "name": "India" },
+    "Global"
+  ]
 }

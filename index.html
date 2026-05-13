@@ -2,93 +2,376 @@
 <html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/webbuzz-logo.png" />
-    <link rel="apple-touch-icon" href="/webbuzz-logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Webbuzz - Your trusted 24/7 digital solutions company for web development, graphic design, and digital marketing services based in India. The official Webbuzz website." />
-    <meta name="keywords" content="Webbuzz, Webbuzz official, Webbuzz Tech, Webbuzz India, Webbuzz website, Webbuzz tech solutions, web development, graphic design, digital marketing, SEO, responsive websites" />
-    <meta name="author" content="Webbuzz Tech" />
+
+    <!-- Primary SEO Meta Tags -->
+    <title>WebBuzz — Web Design & Development Agency | SEO & Digital Marketing Services India</title>
+    <meta name="description" content="WebBuzz is a leading web design agency & digital marketing company in Ahmedabad, India. We offer web development, UI/UX design, SEO services, ecommerce development, branding & graphic design. Available 24/7." />
+    <meta name="keywords" content="web design, web development, SEO agency, digital marketing, social media marketing, website development company, branding agency, UI UX design, ecommerce website development, software development, graphic design, marketing agency, SEO services, web design agency, digital agency, WebBuzz, WebBuzz Tech, Ahmedabad" />
+    <meta name="author" content="WebBuzz Tech" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
     <link rel="canonical" href="https://www.webbuzz.tech/" />
-    
+
+    <!-- Geo Meta Tags for Local SEO -->
+    <meta name="geo.region" content="IN-GJ" />
+    <meta name="geo.placename" content="Ahmedabad" />
+    <meta name="geo.position" content="23.0225;72.5714" />
+    <meta name="ICBM" content="23.0225, 72.5714" />
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.webbuzz.tech/" />
-    <meta property="og:title" content="WebBuzz — Web, Design & Marketing" />
-    <meta property="og:description" content="Webbuzz - Your 24/7 digital solutions company helping businesses grow online through stunning websites, creative designs, and result-driven marketing." />
-    <meta property="og:image" content="/og-image.png" />
-    <meta property="og:site_name" content="Webbuzz" />
-    
+    <meta property="og:title" content="WebBuzz — Web Design & Development Agency | Digital Marketing Services" />
+    <meta property="og:description" content="WebBuzz is a leading web design agency & digital marketing company in India. We offer web development, UI/UX design, SEO services, ecommerce development, branding & graphic design. 24/7 support." />
+    <meta property="og:image" content="https://www.webbuzz.tech/webbuzz-logo.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="WebBuzz - Web Design & Digital Marketing Agency" />
+    <meta property="og:site_name" content="WebBuzz" />
+    <meta property="og:locale" content="en_US" />
+
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://www.webbuzz.tech/" />
-    <meta property="twitter:title" content="WebBuzz — Web, Design & Marketing" />
-    <meta property="twitter:description" content="Webbuzz - Your 24/7 digital solutions company helping businesses grow online through stunning websites, creative designs, and result-driven marketing." />
-    <meta property="twitter:image" content="/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://www.webbuzz.tech/" />
+    <meta name="twitter:title" content="WebBuzz — Web Design & Development Agency | Digital Marketing Services" />
+    <meta name="twitter:description" content="WebBuzz is a leading web design agency & digital marketing company in India. Web development, UI/UX design, SEO, ecommerce, branding & graphic design. 24/7 support." />
+    <meta name="twitter:image" content="https://www.webbuzz.tech/webbuzz-logo.png" />
+    <meta name="twitter:image:alt" content="WebBuzz - Web Design & Digital Marketing Agency" />
     <meta name="twitter:site" content="@webbuzz" />
-    
+    <meta name="twitter:creator" content="@webbuzz" />
+
     <!-- Theme Color -->
     <meta name="theme-color" content="#6C5CE7" />
-    
+    <meta name="msapplication-TileColor" content="#6C5CE7" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="/webbuzz-logo.png" />
+    <link rel="apple-touch-icon" href="/webbuzz-logo.png" />
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://firestore.googleapis.com" />
+
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
     <!-- Manifest -->
     <link rel="manifest" href="/manifest.webmanifest" />
-    
-    <!-- Structured Data for SEO -->
+
+    <!-- Structured Data: Organization -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "@id": "https://webbuzz.tech/",
-      "name": "Webbuzz",
-      "alternateName": "Webbuzz Tech",
-      "description": "Webbuzz - Your 24/7 digital solutions company for web development, graphic design, and digital marketing services.",
-      "url": "https://webbuzz.tech/",
-      "logo": "https://webbuzz.tech/webbuzz-logo.png",
-      "image": "https://webbuzz.tech/og-image.png",
-      "email": "webbuzz03@gmail.com",
-      "telephone": "+919586816799",
+      "@type": "Organization",
+      "@id": "https://www.webbuzz.tech/#organization",
+      "name": "WebBuzz",
+      "alternateName": ["WebBuzz Tech", "Webbuzz", "Webbuzz Tech"],
+      "description": "WebBuzz is a leading web design agency and digital marketing company in Ahmedabad, India, offering web development, UI/UX design, SEO services, ecommerce development, branding and graphic design with 24/7 support.",
+      "url": "https://www.webbuzz.tech/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.webbuzz.tech/webbuzz-logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "image": "https://www.webbuzz.tech/webbuzz-logo.png",
+      "email": "webbuzzofficial@gmail.com",
+      "telephone": "+918128303618",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Ahmedabad",
         "addressRegion": "Gujarat",
-        "addressCountry": "India"
+        "postalCode": "380015",
+        "addressCountry": "IN"
       },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 23.0225,
+        "longitude": 72.5714
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+918128303618",
+          "contactType": "customer service",
+          "areaServed": ["IN", "US", "GB", "CA", "AU"],
+          "availableLanguage": ["English", "Hindi", "Gujarati"],
+          "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+            "opens": "00:00",
+            "closes": "23:59"
+          }
+        }
+      ],
       "sameAs": [
-        "https://webbuzz.tech/webbuzz.html",
+        "https://www.linkedin.com/in/webbuzz-webbuzz-tech-1946b840a",
         "https://www.instagram.com/webbuzz.tech/",
+        "https://www.instagram.com/webbuzz_tech/",
         "https://www.facebook.com/share/1QbRTxw3G6/"
       ],
+      "foundingDate": "2024",
+      "numberOfEmployees": {
+        "@type": "QuantitativeValue",
+        "minValue": 2,
+        "maxValue": 10
+      },
+      "knowsAbout": [
+        "Web Design", "Web Development", "SEO Services", "Digital Marketing",
+        "Social Media Marketing", "Ecommerce Development", "UI UX Design",
+        "Graphic Design", "Branding", "Software Development"
+      ],
+      "areaServed": [
+        { "@type": "Country", "name": "India" },
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "United Kingdom" }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://www.webbuzz.tech/#local-business",
+      "name": "WebBuzz",
+      "alternateName": "WebBuzz Tech",
+      "description": "WebBuzz is a web design agency and digital marketing company in Ahmedabad offering web development, UI/UX design, SEO services, ecommerce development, graphic design, and branding solutions.",
+      "url": "https://www.webbuzz.tech/",
+      "telephone": "+918128303618",
+      "email": "webbuzzofficial@gmail.com",
+      "image": "https://www.webbuzz.tech/webbuzz-logo.png",
+      "logo": "https://www.webbuzz.tech/webbuzz-logo.png",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ahmedabad",
+        "addressRegion": "Gujarat",
+        "postalCode": "380015",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 23.0225,
+        "longitude": 72.5714
+      },
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday"
-        ],
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
         "opens": "00:00",
         "closes": "23:59"
       },
-      "priceRange": "$$",
-      "keywords": ["Webbuzz", "Webbuzz Tech", "web development", "graphic design", "digital marketing", "SEO", "responsive websites"],
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://webbuzz.tech/"
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "20",
+        "bestRating": "5",
+        "worstRating": "1"
       }
     }
     </script>
-    
-    <title>WebBuzz — Web, Design & Marketing</title>
+
+    <!-- Structured Data: WebSite with SearchAction -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://www.webbuzz.tech/#website",
+      "name": "WebBuzz",
+      "alternateName": "WebBuzz Tech",
+      "url": "https://www.webbuzz.tech/",
+      "publisher": {
+        "@id": "https://www.webbuzz.tech/#organization"
+      },
+      "inLanguage": "en-US",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.google.com/search?q=site:webbuzz.tech+{search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- Structured Data: WebPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://www.webbuzz.tech/#webpage",
+      "url": "https://www.webbuzz.tech/",
+      "name": "WebBuzz — Web Design & Development Agency | SEO & Digital Marketing Services India",
+      "description": "WebBuzz is a leading web design agency and digital marketing company in Ahmedabad, India. Web development, UI/UX design, SEO services, ecommerce development, branding and graphic design.",
+      "isPartOf": {
+        "@id": "https://www.webbuzz.tech/#website"
+      },
+      "about": {
+        "@id": "https://www.webbuzz.tech/#organization"
+      },
+      "inLanguage": "en-US",
+      "datePublished": "2024-01-01",
+      "dateModified": "2026-05-13",
+      "breadcrumb": {
+        "@id": "https://www.webbuzz.tech/#breadcrumb"
+      }
+    }
+    </script>
+
+    <!-- Structured Data: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "@id": "https://www.webbuzz.tech/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.webbuzz.tech/"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: Services -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "WebBuzz Services",
+      "description": "Professional digital services offered by WebBuzz",
+      "itemListElement": [
+        {
+          "@type": "Service",
+          "position": 1,
+          "name": "Web Design & Development",
+          "description": "Custom, responsive websites and web applications tailored to your business needs. Includes ecommerce website development, UI/UX design, and software development with modern technologies and optimized performance.",
+          "provider": { "@id": "https://www.webbuzz.tech/#organization" },
+          "serviceType": "Web Development",
+          "areaServed": { "@type": "Country", "name": "India" },
+          "url": "https://www.webbuzz.tech/#services"
+        },
+        {
+          "@type": "Service",
+          "position": 2,
+          "name": "Graphic Design & Branding",
+          "description": "Eye-catching visual assets, brand identity development, logo design, and creative designs that effectively communicate your brand's unique story. Complete branding agency services.",
+          "provider": { "@id": "https://www.webbuzz.tech/#organization" },
+          "serviceType": "Graphic Design",
+          "areaServed": { "@type": "Country", "name": "India" },
+          "url": "https://www.webbuzz.tech/#services"
+        },
+        {
+          "@type": "Service",
+          "position": 3,
+          "name": "Digital Marketing & SEO Services",
+          "description": "Strategic SEO optimization, social media marketing, targeted advertising campaigns, and digital marketing strategies to increase your online visibility, engagement, and conversions.",
+          "provider": { "@id": "https://www.webbuzz.tech/#organization" },
+          "serviceType": "Digital Marketing",
+          "areaServed": { "@type": "Country", "name": "India" },
+          "url": "https://www.webbuzz.tech/#services"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What services does WebBuzz offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "WebBuzz offers comprehensive digital services including web design and development, ecommerce website development, UI/UX design, graphic design, branding, SEO services, social media marketing, and digital marketing solutions. We serve businesses in Ahmedabad, India and globally."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does a website cost at WebBuzz?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our pricing varies based on project complexity and requirements. We offer competitive rates for web design, web development, and digital marketing services. Contact us for a free consultation and customized quote."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does WebBuzz provide 24/7 support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, WebBuzz provides round-the-clock 24/7 customer support. Our team is always available to help with website maintenance, updates, and any technical issues."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is WebBuzz located?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "WebBuzz is based in Ahmedabad, Gujarat, India. We serve clients locally in Ahmedabad and Gujarat, as well as businesses across India and internationally."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can WebBuzz help with SEO and digital marketing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely! WebBuzz is a full-service digital marketing agency offering SEO services, social media marketing, Google Ads management, content marketing, and comprehensive online marketing strategies to help businesses grow their digital presence."
+          }
+        }
+      ]
+    }
+    </script>
+
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <!-- Noscript fallback for SEO crawlers and users without JS -->
+    <noscript>
+      <div style="max-width:800px;margin:0 auto;padding:40px 20px;font-family:Inter,system-ui,sans-serif;color:#333;">
+        <h1 style="color:#6C5CE7;">WebBuzz — Web Design & Development Agency</h1>
+        <p>WebBuzz is a leading web design agency and digital marketing company in Ahmedabad, India. We help businesses grow online through stunning websites, creative designs, and result-driven marketing strategies.</p>
+
+        <h2 style="color:#6C5CE7;">Our Services</h2>
+        <ul>
+          <li><strong>Web Design & Development:</strong> Custom, responsive websites and web applications tailored to your business needs with modern technologies and optimized performance.</li>
+          <li><strong>Graphic Design & Branding:</strong> Eye-catching visual assets, brand identity development, logo design, and creative designs that tell your brand's story.</li>
+          <li><strong>Digital Marketing & SEO:</strong> Strategic SEO optimization, social media marketing, targeted advertising, and digital strategies to boost your online visibility.</li>
+        </ul>
+
+        <h2 style="color:#6C5CE7;">Why Choose WebBuzz?</h2>
+        <ul>
+          <li>20+ projects delivered successfully</li>
+          <li>95% client satisfaction rate</li>
+          <li>24/7 support available</li>
+          <li>5.0 star service rating</li>
+        </ul>
+
+        <h2 style="color:#6C5CE7;">Contact Us</h2>
+        <p>Phone: <a href="tel:+918128303618">+91 8128303618</a></p>
+        <p>Email: <a href="mailto:webbuzzofficial@gmail.com">webbuzzofficial@gmail.com</a></p>
+        <p>Location: Ahmedabad, Gujarat, India</p>
+        <p>WhatsApp: <a href="https://wa.me/918128303618">Chat on WhatsApp</a></p>
+
+        <h2 style="color:#6C5CE7;">Follow Us</h2>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/webbuzz-webbuzz-tech-1946b840a">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/webbuzz.tech/">Instagram</a></li>
+          <li><a href="https://www.facebook.com/share/1QbRTxw3G6/">Facebook</a></li>
+        </ul>
+
+        <p>&copy; 2026 WebBuzz Tech. All rights reserved.</p>
+      </div>
+    </noscript>
   </body>
 </html>

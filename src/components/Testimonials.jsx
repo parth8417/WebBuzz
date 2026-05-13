@@ -288,8 +288,10 @@ function Testimonials() {
     <section
       id="reviews"
       ref={sectionRef}
-      aria-label="Client Reviews"
+      aria-label="Client Reviews & Testimonials for WebBuzz Web Design Agency"
       className="reviews-section relative py-10 sm:py-14 md:py-16 lg:py-20 xl:py-24 bg-dark overflow-hidden"
+      itemScope
+      itemType="https://schema.org/Review"
     >
       {/* Background ambient glow */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">

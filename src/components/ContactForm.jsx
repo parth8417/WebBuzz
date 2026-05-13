@@ -195,7 +195,7 @@ function ContactForm() {
     <section 
       id="contact" 
       ref={sectionRef}
-      aria-label="Contact Us" 
+      aria-label="Contact WebBuzz - Get a Free Quote for Web Design & Digital Marketing" 
       className="section bg-gray-50 dark:bg-gray-900 py-16 md:py-20 relative overflow-hidden"
     >
       {/* Background decorative elements */}

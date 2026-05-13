@@ -55,8 +55,10 @@ function Hero() {
   return (
     <section 
       id="home" 
-      aria-label="Home"
+      aria-label="WebBuzz - Web Design Agency & Digital Marketing Company"
       className="section relative min-h-[100vh] flex items-center justify-center overflow-hidden hero-compact"
+      itemScope
+      itemType="https://schema.org/WPHeader"
     >
       {/* Enhanced background with improved texture and depth */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 z-0 overflow-hidden">
@@ -202,13 +204,18 @@ function Hero() {
           initial="hidden"
           animate={controls}
         >
-          {/* Moderately sized but impactful headline with gradient text */}
-          <motion.h1 
+          {/* SEO-optimized heading - visually hidden but crawlable */}
+          <h1 className="sr-only">WebBuzz — Leading Web Design Agency, Web Development Company & Digital Marketing Services in Ahmedabad, India</h1>
+          
+          {/* Visually impactful headline with gradient text */}
+          <motion.p 
             variants={itemVariants}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-5 sm:mb-7 hero-text-gradient leading-[1.2] tracking-tight"
+            role="heading"
+            aria-level="2"
           >
             Elevate Your <span className="hero-text-gradient-enhanced inline-block">Digital Presence</span>
-          </motion.h1>
+          </motion.p>
           
           {/* New tagline for better messaging */}
           <motion.p
@@ -217,6 +224,13 @@ function Hero() {
           >
             Transforming ideas into powerful digital experiences that drive results.
           </motion.p>
+          
+          {/* SEO-only keyword content - visually hidden */}
+          <span className="sr-only">
+            WebBuzz offers professional web design, website development, ecommerce development, 
+            UI UX design, graphic design, branding, SEO services, social media marketing, 
+            and digital marketing solutions for businesses worldwide.
+          </span>
 
           {/* Enhanced service list with professional badges */}
           <motion.div

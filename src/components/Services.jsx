@@ -19,34 +19,34 @@ function Services() {
     {
       icon: <Code className="h-8 w-8" />,
       title: "Web Development",
-      description: "Custom, responsive websites and web applications tailored to your business needs with modern technologies and optimized performance.",
+      description: "Custom, responsive websites and web applications built with modern technologies. From ecommerce website development to UI/UX design, we deliver SEO-optimized, high-performance digital solutions.",
       color: "primary",
       features: [
-        "Responsive design for all devices",
-        "SEO-optimized structure",
-        "Fast loading and performance"
+        "Responsive web design for all devices",
+        "SEO-optimized website structure",
+        "Fast loading and optimized performance"
       ]
     },
     {
       icon: <Palette className="h-8 w-8" />,
       title: "Graphic Designing",
-      description: "Eye-catching visual assets, brand identity development, and creative designs that effectively communicate your brand's unique story.",
+      description: "Eye-catching visual assets, brand identity development, and creative designs. Our branding agency services include logo design, marketing materials, and complete UI/UX design solutions.",
       color: "secondary",
       features: [
         "Brand identity & logo design",
         "Print & digital marketing materials",
-        "User interface design"
+        "Professional UI/UX design"
       ]
     },
     {
       icon: <TrendingUp className="h-8 w-8" />,
       title: "Digital Marketing",
-      description: "Strategic SEO optimization, targeted advertising campaigns, and social media management to increase your online visibility and engagement.",
+      description: "Strategic SEO services, social media marketing, targeted advertising campaigns, and comprehensive digital marketing strategies to boost your online visibility, engagement, and conversions.",
       color: "accent",
       features: [
-        "Search engine optimization (SEO)",
-        "Social media marketing",
-        "PPC & conversion optimization"
+        "Search engine optimization (SEO services)",
+        "Social media marketing & management",
+        "PPC advertising & conversion optimization"
       ]
     }
   ];
@@ -55,8 +55,10 @@ function Services() {
     <section 
       id="services" 
       ref={sectionRef}
-      aria-label="Our Services" 
+      aria-label="Web Development, Graphic Design & Digital Marketing Services" 
       className="section bg-gray-50 dark:bg-gray-900 py-10 md:py-10 relative overflow-hidden"
+      itemScope
+      itemType="https://schema.org/ItemList"
     >
       {/* Background decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 dark:opacity-5 pointer-events-none">
@@ -80,7 +82,7 @@ function Services() {
           </h2>
           <div className="h-1 w-20 bg-primary mx-auto rounded-full mb-6"></div>
           <p className="text-muted max-w-2xl mx-auto">
-            We deliver high-quality solutions to help your business stand out in the digital landscape with innovative and user-focused approaches.
+            We deliver high-quality web design, development, and digital marketing solutions to help your business stand out in the digital landscape with innovative and user-focused approaches.
           </p>
         </motion.div>
         

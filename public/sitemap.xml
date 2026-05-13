@@ -1,76 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset 
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <!-- Homepage -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Homepage (Primary) -->
   <url>
     <loc>https://www.webbuzz.tech/</loc>
-    <lastmod>2025-09-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-    <!-- Add link to indicate this is the main webbuzz page -->
-    <xhtml:link rel="alternate" href="https://www.webbuzz.tech/webbuzz.html"/>
-  </url>
-  
-  <!-- Sections as URL fragments -->
-  <url>
-    <loc>https://www.webbuzz.tech/#home</loc>
-    <lastmod>2025-09-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.webbuzz.tech/#about</loc>
-    <lastmod>2025-09-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- Webbuzz specific landing pages -->
-  <url>
-    <loc>https://www.webbuzz.tech/webbuzz.html</loc>
-    <lastmod>2025-09-17</lastmod>
+    <lastmod>2026-05-13</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" href="https://www.webbuzz.tech/webbuzz"/>
-    <xhtml:link rel="canonical" href="https://www.webbuzz.tech/"/>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.webbuzz.tech/webbuzz-logo.png</image:loc>
+      <image:title>WebBuzz Logo - Web Design and Digital Marketing Agency</image:title>
+      <image:caption>WebBuzz - Leading web design agency and digital marketing company in Ahmedabad, India</image:caption>
+    </image:image>
   </url>
-  
-  <url>
-    <loc>https://webbuzz.tech/about-webbuzz.html</loc>
-    <lastmod>2025-09-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" href="https://webbuzz.tech/about-webbuzz"/>
-  </url>
-  
-  <!-- HTML Sitemap -->
-  <url>
-    <loc>https://webbuzz.tech/sitemap.html</loc>
-    <lastmod>2025-09-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://webbuzz.tech/#services</loc>
-    <lastmod>2025-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://webbuzz.tech/#contact-info</loc>
-    <lastmod>2025-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://webbuzz.tech/#contact</loc>
-    <lastmod>2025-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
+
 </urlset>
