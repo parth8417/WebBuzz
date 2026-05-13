@@ -111,11 +111,11 @@ function ContactInfo() {
             <h3 className="text-xl font-bold mb-2 text-white text-center">Email</h3>
             
             <p className="text-gray-300 text-center mb-4 flex-grow">
-              webbuzzofficial@gmail.com
+              WebBuzz03@gmail.com
             </p>
             
             <a 
-              href="mailto:webbuzzofficial@gmail.com"
+              href="mailto:webbuzz03@gmail.com"
               className="mt-2 flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-primary text-white transition-colors text-sm font-medium hover:bg-primary-light"
             >
               <span>Send email</span>
@@ -188,7 +188,7 @@ function ContactInfo() {
             
             {/* Instagram */}
             <a
-              href="https://www.instagram.com/webbuzz_tech/"
+              href="https://www.instagram.com/webbuzz.tech/"
               className="p-3 rounded-full bg-gray-700 hover:bg-gradient-to-br hover:from-purple-600 hover:to-orange-500 transition-all duration-300 shadow-md hover:shadow-lg hover:scale-110"
               aria-label="Follow us on Instagram"
               target="_blank"

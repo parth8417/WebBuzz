@@ -24,7 +24,7 @@ function Footer() {
     { 
       icon: <Linkedin size={18} />, 
       name: 'LinkedIn', 
-      href: '#', 
+      href: 'https://www.linkedin.com/in/webbuzz-webbuzz-tech-1946b840a',
       color: '#0A66C2',
       hoverClass: 'hover:bg-[#0A66C2]'
     },
