@@ -82,9 +82,9 @@ function ContactInfo() {
               </div>
             </div>
             
-            <h3 className="text-xl font-bold mb-2 text-white text-center" itemProp="telephone">Phone</h3>
+            <h3 className="text-xl font-bold mb-2 text-white text-center">Phone</h3>
             
-            <p className="text-gray-300 text-center mb-4 flex-grow">
+            <p className="text-gray-300 text-center mb-4 flex-grow" itemProp="telephone">
              {phoneNumber}
             </p>
             
@@ -108,9 +108,9 @@ function ContactInfo() {
               </div>
             </div>
             
-            <h3 className="text-xl font-bold mb-2 text-white text-center" itemProp="email">Email</h3>
+            <h3 className="text-xl font-bold mb-2 text-white text-center">Email</h3>
             
-            <p className="text-gray-300 text-center mb-4 flex-grow">
+            <p className="text-gray-300 text-center mb-4 flex-grow" itemProp="email">
             webbuzzofficial@gmail.com</p>
             
             <a 
