@@ -18,7 +18,8 @@ Disallow: /assets/*.map
 # Allow important resources for rendering
 Allow: /assets/
 Allow: /webbuzz-logo.png
-Allow: /webbuzz-og-preview.png
+Allow: /webbuzz-office-preview-2026.png
+Disallow: /webbuzz-og-preview.png
 Allow: /manifest.webmanifest
 
 # Sitemap location

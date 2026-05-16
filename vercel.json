@@ -59,6 +59,16 @@
       "permanent": true
     },
     {
+      "source": "/webbuzz-og-preview.png",
+      "destination": "/webbuzz-office-preview-2026.png",
+      "permanent": true
+    },
+    {
+      "source": "/Work.png",
+      "destination": "/webbuzz-office-preview-2026.png",
+      "permanent": true
+    },
+    {
       "source": "/:path+/",
       "destination": "/:path+",
       "permanent": true

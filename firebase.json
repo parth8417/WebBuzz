@@ -40,6 +40,16 @@
         "source": "/sitemap.html",
         "destination": "/sitemap.xml",
         "type": 301
+      },
+      {
+        "source": "/webbuzz-og-preview.png",
+        "destination": "/webbuzz-office-preview-2026.png",
+        "type": 301
+      },
+      {
+        "source": "/Work.png",
+        "destination": "/webbuzz-office-preview-2026.png",
+        "type": 301
       }
     ],
     "headers": [
@@ -92,7 +102,7 @@
         ]
       },
       {
-        "source": "/webbuzz-og-preview.png",
+        "source": "/webbuzz-office-preview-2026.png",
         "headers": [
           {
             "key": "Cache-Control",

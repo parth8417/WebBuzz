@@ -2,7 +2,7 @@ import { motion, useReducedMotion, useInView } from 'framer-motion';
 import { Rocket, Users, Clock } from 'lucide-react';
 import { useRef } from 'react';
 import animations from '../utils/animations';
-import Workspace from '/Work.png';
+import Workspace from '/webbuzz-office-preview-2026.png';
 
 function About() {
   // Honor reduced motion preferences
